@@ -1,0 +1,148 @@
+
+/* Header Styles */
+
+.header{
+    font-size: 40px;
+    font-weight: 700;
+    padding: 12px 0px;
+    letter-spacing: 7px;
+}
+
+/* Topfold Styles */
+
+.topfold{
+    height: 92vh;
+    /* display: flex; */
+    /* overflow: hidden; */
+}
+
+.tf-left{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-right: 100px;
+}
+.tf-heading{
+    font-size: 72px;
+    font-weight: 600;
+    line-height: 72px;
+    margin-right: 100px;
+    /* word-spacing: 40px; */
+}
+
+.tf-desc {
+    font-size: 20px;
+    /* font-weight: 400; */
+    margin: 20px 0px;
+}
+
+.tf-buttons{
+    margin: 20px 0px;
+    display: flex;
+}
+
+.tf-sec-btn{
+    margin-left: 30px ;
+}
+
+.tf-infostats{
+    display: flex;
+    margin: 20px 0px;
+}
+
+.tf-is-item {
+    margin-right:60px;
+}
+
+.tf-is-count {
+    font-size:28px;
+    font-weight: 500;
+}
+
+.tf-is-label{
+    font-weight: 500;
+}
+
+
+
+.tf-right{
+    display: flex;
+    flex:1;
+    position: relative;
+}
+
+.tf-r-diamond{
+    display: flex;
+    width: 600px;
+    flex-wrap: wrap;
+    transform: rotate(45deg);
+}
+.tf-r-diamond-item{
+    transform: rotate(-45deg);
+    margin: 6px;
+
+    
+}
+.tf-r-diamond-item img {
+    /* height: 300px; */
+    object-fit: contain;
+    border: solid var(--white) 3px;
+    border-radius: 15px;
+}
+
+.tf-r-bg-blob{
+    width: 600px;
+    height: 500px;
+    background-color: var(--bg-blob);
+    position: absolute;
+    z-index: -99;
+    filter: blur(200px);
+    right:50%;
+}
+
+/* TrendingNFTs Styles */
+.trending-nfts{
+    margin-top: 10vw;
+    margin-bottom: 5vw;
+    position: relative;
+}
+
+.tn-heading{
+    font-size: 45px;
+    font-weight: 700;
+    margin: 12px 0px;
+}
+.tn-slider{
+    margin : 40px 0px;
+}
+.tn-button{
+    font-size: 15px !important;
+}
+
+.tn-bg-blob {
+    width: 600px;
+    height: 500px;
+    background-color: var(--bg-blob);
+    position: absolute;
+    z-index: -99;
+    filter: blur(200px);
+    right:30%
+}
+
+/* .tn-content {
+    overflow: hidden;
+    max-height: 500px;
+    transition: max-height 3s ease;
+}
+
+.visible {
+    max-height: 3000px;
+}
+.hidden-content { 
+    display: none;
+}
+
+.visible .hidden-content {
+    display: block;
+} */
+

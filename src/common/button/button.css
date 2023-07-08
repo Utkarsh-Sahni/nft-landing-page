@@ -1,0 +1,19 @@
+.btn{
+    font-size: 20px;
+    width: max-content;
+    padding: 15px 45px;
+    font-weight: 500;
+    border-radius: 60px;
+    cursor: pointer;
+}
+
+.btn-primary{
+    color: var(--white);
+    background-color: var(--primary);
+}
+.btn-secondary{
+    color: var(--white);
+    background-color: transparent;
+    border: solid;
+    border-color: var(--white);
+}

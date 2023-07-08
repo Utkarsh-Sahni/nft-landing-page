@@ -1,0 +1,45 @@
+/* .trending card {
+    flex-direction: column;
+}  */
+
+.tc-inner-wrapper{
+    background: var(--text-gradient-1);
+    padding: 2px;
+    border-radius: 10px;
+}
+
+.tc-content{
+    width: 280px;
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: var(--background);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.tc-img img {
+    width: 280px;
+    height: 280px;
+}
+
+.tc-info{
+    display: flex;
+    padding-top: 20px ;
+}
+.tc-collection-logo img{
+    width: 68px;
+    height: 68px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.tc-nft-collection{
+    font-weight: 600;
+    
+}
+.tc-user-name {
+    font-size : 15px;
+}
+
+
+
