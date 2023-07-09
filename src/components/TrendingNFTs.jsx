@@ -1,15 +1,16 @@
-import React from "react";
-import { useCollapse } from 'react-collapsed'
+import React, { useEffect, useState } from "react";
+import { useCollapse } from "react-collapsed";
 
 import Button from "../common/button/Button";
 import Slider from "react-slick/lib/slider";
 
 // import { TRENDING_NFTS } from "../trendingNfts";
-import {NFT_DATA} from "../fetch";
+import { fetchNFTs } from "../fetch";
 import TrendingCard from "../common/trendingCard/TrendingCard";
 
-
 export default function TrendingNFTs() {
+  const apiKey = process.env.REACT_APP_API_KEY;
+  // console.log(apiKey);
   const settings = {
     slidesToShow: 3,
     autoplay: true,
@@ -17,9 +18,34 @@ export default function TrendingNFTs() {
     speed: 500,
     arrows: false,
   };
-  // console.log(NFT_DATA);
+  
+  const [nfts, setNfts] = useState([]);
+  
+  useEffect(() => {
+    const fetchDataFromApi = async () => {
+      try {
+        const contractAddressesStr= process.env.REACT_APP_CONTRACT_ADDRESSES;
+        const contractAddresses = contractAddressesStr.split(',');
+        // console.log(contractAddresses);
+        const promises = contractAddresses.map((_contractAddress) =>
+          fetchNFTs(apiKey, _contractAddress)
+        );
+        const apidata = await Promise.all(promises);
+        const mergedData= [].concat(...apidata);
+        // console.log("apidata", mergedData);
+        setNfts(mergedData);
+      } catch (err) {
+        console.log("err", err);
+      }
+    };
 
-  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse()
+    fetchDataFromApi();
+  }, [apiKey]);
+
+  // console.log("nfts", nfts);
+ 
+
+  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
 
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -27,8 +53,8 @@ export default function TrendingNFTs() {
       [array[i], array[j]] = [array[j], array[i]];
     }
   }
-  shuffleArray(NFT_DATA);
-  let TRENDING_NFTS = NFT_DATA.slice(0, 6);
+  shuffleArray(nfts);
+  let TRENDING_NFTS = nfts.slice(0, 6);
 
   return (
     <div className="trending-nfts">
@@ -47,7 +73,7 @@ export default function TrendingNFTs() {
         <div {...getCollapseProps()} className="hidden-content tn-see-more">
           {[...Array(4)].map((_, i) => {
             // console.log(i*6, i*6+6);
-            TRENDING_NFTS = NFT_DATA.slice((i + 1) * 6, (i + 1) * 6 + 6);
+            TRENDING_NFTS = nfts.slice((i + 1) * 6, (i + 1) * 6 + 6);
             return (
               <div className="tn-slider">
                 <Slider {...settings}>
@@ -61,9 +87,9 @@ export default function TrendingNFTs() {
         </div>
       </div>
       <div {...getToggleProps()} className="tn-btn absolute-center">
-        <Button 
+        <Button
           btnType="Secondary"
-          btnText={isExpanded? "SEE LESS" : "SEE MORE"}
+          btnText={isExpanded ? "SEE LESS" : "SEE MORE"}
           // btnOnClick={handleSeeMore}
           customClasses="tn-button see-more-btn"
         />
