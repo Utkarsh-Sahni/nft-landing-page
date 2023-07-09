@@ -5,7 +5,7 @@ import Button from "../common/button/Button";
 import Slider from "react-slick/lib/slider";
 
 // import { TRENDING_NFTS } from "../trendingNfts";
-import { NFT_DATA } from "../fetch";
+import {NFT_DATA} from "../fetch";
 import TrendingCard from "../common/trendingCard/TrendingCard";
 
 
@@ -17,7 +17,7 @@ export default function TrendingNFTs() {
     speed: 500,
     arrows: false,
   };
-  console.log(NFT_DATA);
+  // console.log(NFT_DATA);
 
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse()
 
@@ -28,7 +28,7 @@ export default function TrendingNFTs() {
     }
   }
   shuffleArray(NFT_DATA);
-  let TRENDING_NFTS = NFT_DATA.slice(0, 10);
+  let TRENDING_NFTS = NFT_DATA.slice(0, 6);
 
   return (
     <div className="trending-nfts">

@@ -4,7 +4,7 @@ import './trendingCard.css'
 export default function TrendingCard(props) {
     const {nft}= props;
   return (
-    <div className='trending-card absolute-center'>
+    <div className='trending-card absolute-center cur-po'>
         <div className='tc-inner-wrapper'>
             <div className='tc-content'>
                 <div className='tc-img'>
