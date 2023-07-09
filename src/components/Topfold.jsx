@@ -10,9 +10,8 @@ export default function Topfold() {
           <span className="heading-gradient">Extraodinary</span> NFTs
         </div>
         <div className="tf-desc">
-          The leading NFT Marketplace on Ethereum and home to the nextgeneration
-          of digital creators. Discover the best NFT collections and make your
-          own.
+          The leading NFT Marketplace on Ethereum and home to the next generation
+          of digital creators. Displays the NFTs from the Top NFT collections for you.
         </div>
         <div className="tf-buttons">
           <Button btnType="Primary" btnText="Explore" />

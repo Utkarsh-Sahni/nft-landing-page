@@ -18,20 +18,20 @@ export default function TrendingNFTs() {
     speed: 500,
     arrows: false,
   };
-  
+
   const [nfts, setNfts] = useState([]);
-  
+
   useEffect(() => {
     const fetchDataFromApi = async () => {
       try {
-        const contractAddressesStr= process.env.REACT_APP_CONTRACT_ADDRESSES;
-        const contractAddresses = contractAddressesStr.split(',');
+        const contractAddressesStr = process.env.REACT_APP_CONTRACT_ADDRESSES;
+        const contractAddresses = contractAddressesStr.split(",");
         // console.log(contractAddresses);
         const promises = contractAddresses.map((_contractAddress) =>
           fetchNFTs(apiKey, _contractAddress)
         );
         const apidata = await Promise.all(promises);
-        const mergedData= [].concat(...apidata);
+        const mergedData = [].concat(...apidata);
         // console.log("apidata", mergedData);
         setNfts(mergedData);
       } catch (err) {
@@ -42,8 +42,7 @@ export default function TrendingNFTs() {
     fetchDataFromApi();
   }, [apiKey]);
 
-  // console.log("nfts", nfts);
- 
+  console.log("nfts", nfts);
 
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
 
@@ -58,12 +57,12 @@ export default function TrendingNFTs() {
 
   return (
     <div className="trending-nfts">
-      <div className="tn-bg-blob"></div>
       <div className="tn-heading absolute-center">
         <span className="heading-gradient">Trending NFTs</span>
       </div>
       <div className="tn-content">
         <div className="tn-slider shown-content">
+          <div className="tn-bg-blob"></div>
           <Slider {...settings}>
             {TRENDING_NFTS.map((_nft) => (
               <TrendingCard nft={_nft} />
@@ -71,11 +70,12 @@ export default function TrendingNFTs() {
           </Slider>
         </div>
         <div {...getCollapseProps()} className="hidden-content tn-see-more">
-          {[...Array(4)].map((_, i) => {
+          {[...Array(3)].map((_, i) => {
             // console.log(i*6, i*6+6);
             TRENDING_NFTS = nfts.slice((i + 1) * 6, (i + 1) * 6 + 6);
             return (
               <div className="tn-slider">
+                <div className="tn-bg-blob"></div>
                 <Slider {...settings}>
                   {TRENDING_NFTS.map((_nft) => (
                     <TrendingCard nft={_nft} />

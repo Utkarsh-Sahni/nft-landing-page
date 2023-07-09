@@ -1,6 +1,4 @@
-/* .trending card {
-    flex-direction: column;
-}  */
+
 
 .tc-inner-wrapper{
     background: var(--text-gradient-1);
@@ -37,8 +35,12 @@
     font-weight: 600;
     
 }
-.tc-user-name {
+.tc-nft-name {
     font-size : 15px;
+}
+.tc-nft-floorprice{
+    font-size: 15px;
+    font-weight: 500;
 }
 
 
